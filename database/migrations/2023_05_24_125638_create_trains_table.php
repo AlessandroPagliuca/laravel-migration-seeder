@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->tinyInteger('train_code')->unsigned();
             $table->tinyInteger('number_of_carriages')->unsigned();
             $table->string('in_time');
-            $table->string('deleted');
+            $table->boolean('deleted');
             $table->timestamps();
         });
     }

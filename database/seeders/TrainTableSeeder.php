@@ -22,12 +22,13 @@ class TrainTableSeeder extends Seeder
             $newTrain->agency = $faker->words(1, true);
             $newTrain->departure_station = $faker->city();
             $newTrain->arrival_station = $faker->city();
-            $newTrain->departure_time = $faker->time();
-            $newTrain->arrival_time = $faker->time();
-            $newTrain->train_code = $faker->postcode();
+            $newTrain->departure_time = $faker->dateTimeBetween('-3 hours', 'now');
+            $newTrain->arrival_time = $faker->dateTimeInInterval('now', '+3 hours');
+            $newTrain->train_code = $faker->numberBetween(0, 255);
             $newTrain->number_of_carriages = $faker->randomDigitNotNull();
-            $newTrain->in_time = $faker->paragraph();
-            $newTrain->deleted = $faker->paragraph();
+            $newTrain->in_time = $faker->words(5, true);
+            $newTrain->deleted = $faker->boolean();
+            $newTrain->save();
         }
     }
 }
