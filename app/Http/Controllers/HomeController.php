@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\House;
+use App\Models\Train;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $houses = House::all();
+        $trains = Train::all();
 
-        return view('home', compact('houses'));
+        return view('home', compact('trains'));
     }
 
 }
